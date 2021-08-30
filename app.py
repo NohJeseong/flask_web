@@ -16,5 +16,12 @@ def articles():
     list_data = Articles()
     return render_template('articles.html',data = list_data)
 
+@app.route('/detail/<ids>')
+def detail(ids):
+    ids =int(ids)-1
+    list_data = Articles()
+    return render_template('detail.html',data = list_data[ids])
+
+
 if __name__ == '__main__':
     app.run(debug=True)
