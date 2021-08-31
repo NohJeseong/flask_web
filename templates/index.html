@@ -9,8 +9,12 @@
 </head>
 
 <body>
-    <h1>INDEX PAGE</h1>
-    <h1>Hello {{data }}</h1>
+    {% extends 'layout.html'%} {% block body %}
+    <h1>HOME</h1>
+    <h1>Hello visitor!!</h1>
+    <h1>I am {{ data }}</h1>
+    {% endblock %}
+
 </body>
 
 </html>

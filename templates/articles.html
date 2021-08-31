@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    {% extends 'layout.html'%} {% block body %}
     <h1>게시판</h1>
 
     <div class="card shadow mb-4">
@@ -55,10 +56,10 @@
 
                                     {% for i in data %}
                                     <tr class="odd">
-                                        <td class="sorting_1">{{i['id']}}</td>
-                                        <td><a href="/detail/{{i['id']}}">{{i['title']}}</a></td>
-                                        <td>{{i['author']}}</td>
-                                        <td>{{i['create_at']}}</td>
+                                        <td class="sorting_1">{{i[0]}}</td>
+                                        <td><a href="/detail/{{i[0]}}">{{i[1]}}</a></td>
+                                        <td>{{i[3]}}</td>
+                                        <td>{{i[4]}}</td>
                                         <td><button class="btn btn-primary">편집</button> <button class="btn btn-danger">삭제</button></td>
                                     </tr>
                                     {% endfor %}
@@ -72,6 +73,7 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ url_for( 'static', filename='vendor/jquery/jquery.min.js')}}"></script>
@@ -89,7 +91,6 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ url_for( 'static', filename='js/demo/datatables-demo.js')}}"></script>
-
 </body>
 
 </html>
