@@ -1,19 +1,20 @@
-import pymysql
+# import pymysql
 
-db_connection = pymysql.connect(
-	user    = 'root',
-        passwd  = '1234',
-    	host    = '127.0.0.1',
-    	db      = 'gangnam',
-    	charset = 'utf8'
-)
+# db_connection = pymysql.connect(
+# 	user    = 'root',
+#         passwd  = '1234',
+#     	host    = '127.0.0.1',
+#     	db      = 'gangnam',
+#     	charset = 'utf8'
+# )
 
-cursor = db_connection.cursor()
+# cursor = db_connection.cursor()
 
-sql = 'SELECT * FROM list;'
+# sql = 'SELECT * FROM list;'
 
-cursor.execute(sql)
+# cursor.execute(sql)
 
-topics = cursor.fetchall()
+# topics = cursor.fetchall()
 
-print(topics)
+# print(topics)
+

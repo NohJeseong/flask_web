@@ -28,13 +28,20 @@ def register():
     else:
         username = request.form["username"]
         email = request.form["email"]
-        password = request.form["password"]
-
+        password = request.form["password"]        
+        
         cursor = db_connection.cursor()
-        sql = f"INSERT INTO users (username, email, password) VALUES ('{username}','{email}','{password}');"
-        cursor.execute(sql)
-        db_connection.commit()
-        return redirect('/')
+        sql_1=cursor.execute(f"SELECT * FROM users WHERE email='{email}'")
+        user =cursor.fetchone()
+        print(user)
+        if user ==None:
+            
+            sql = f"INSERT INTO users (username, email, password) VALUES ('{username}','{email}','{password}');"
+            cursor.execute(sql)
+            db_connection.commit()
+            return redirect('/')
+        else:
+            return redirect('/register')
 
 @app.route('/articles',methods=['GET','POST'])
 def articles():
